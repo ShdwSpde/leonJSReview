@@ -97,3 +97,31 @@ let NMD = new MakeSneaker('Addidas',[9,12,14],'beige',220)
 NMD.run()
 
 console.log(NMD.price)
+
+//Classes are more up to date
+
+class MakeCar{
+  constructor(carMake,carColor,carModel,numOfDoors){
+    this.make = carMake
+    this.color = carColor
+    this.model = carModel
+    this.doors = numOfDoors
+  }
+  honk(){
+    console.log('Beep,beep, motherfucker!!')
+  }
+  lock(){
+    console.log(`Locked ${this.doors} doors`)
+  }
+}
+
+let hondaCivic = new MakeCar('Honda','Silver','Civic',4)
+
+hondaCivic.honk()
+hondaCivic.lock()
+
+hondaCivic.drift = function(){
+  console.log('Tokyo, drift, drift')
+}
+
+hondaCivic.drift()
