@@ -40,3 +40,60 @@ function sumOfValues(a){
 }
 
 sumOfValues([5,'3',2,'1'])
+
+
+/*
+
+OOP
+
+Objects are a collection of functions and variables
+
+They store keyed collections
+
+These represent the attributes and behavior of something used in the program
+
+Object variables are called properties and the functions are called methods
+
+*/
+
+let ninja = {}
+ninja.dance = function(){
+  console.log('Hammer time')
+}
+
+ninja.color = 'red'
+ninja.skillLvl = 'Master'
+ninja.style = ['muy thai', 'grappling','kicking']
+ninja.speed = 10
+ninja.power = 7
+
+ninja.lvlUp = function(num){
+  ninja.power = ninja.power + num
+  ninja.speed = ninja.speed + num
+  console.log(`Ninja now has ${ninja.power} power and ${ninja.speed} speed `)
+}
+
+ninja.lvlUp(5)
+
+/*
+
+To make many objects at once we could use a constructor
+
+*/
+
+function MakeSneaker(sneakerBrand,sneakerSize,sneakerColor,sneakerPrice){
+  this.brand = sneakerBrand
+  this.size = sneakerSize
+  this.color = sneakerColor
+  this.price  = sneakerPrice
+  this.run = function(){
+      alert('We outttttt')
+    } 
+  }
+
+
+let NMD = new MakeSneaker('Addidas',[9,12,14],'beige',220)
+
+NMD.run()
+
+console.log(NMD.price)
