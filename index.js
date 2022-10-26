@@ -98,7 +98,7 @@ NMD.run()
 
 console.log(NMD.price)
 
-//Classes are more up to date
+//Classes are more up to date. Got syntactical sugar
 
 class MakeCar{
   constructor(carMake,carColor,carModel,numOfDoors){
@@ -125,3 +125,76 @@ hondaCivic.drift = function(){
 }
 
 hondaCivic.drift()
+
+
+class MakeExpressoMachine{
+  constructor(machineBrand,machineSize,machineColor,machineCups){
+    this.brand = machineBrand
+    this.size = machineSize
+    this.color = machineColor
+    this.cups = machineCups
+  }
+  grind(){
+    console.log('whirring noises begin')
+  }
+  cupsPlease(){
+    console.log(`This machine makes ${this.cups} cups of coffee`)
+  }
+  brew(){
+    console.log('Hot coffee coming right up')
+  }
+}
+
+let expressoMaster = new MakeExpressoMachine('Walmart','XL','black',16)
+
+expressoMaster.grind()
+expressoMaster.cupsPlease()
+expressoMaster.price = 225
+
+/*
+
+But WHY??
+
+As our codebase gets larger and more folks are on the team, it becomes harder to keep the code organized
+
+is it easy to add new features and functionality?
+
+What if there was a system, a paradigm, a set of rules to help us organize our code better?
+
+Thats OOP
+*/
+
+let hourlyRate = 250
+let hours = 8
+let taxRate = .35
+
+function calculateProfit(rate,numOfHours,taxes){
+  return rate * numOfHours * (1 - taxes)
+}
+
+let profit = calculateProfit(hourlyRate,hours,taxRate)
+
+console.log(profit)
+
+class MakeEmployee{
+  constructor(hourlyRate,hoursWorked,taxRate){
+    this.rate = hourlyRate
+    this.hours = hoursWorked
+    this.taxes = taxRate
+  }
+  profitMade(){
+    console.log(this.rate * this.hours * (1 - this.taxes))
+  }
+}
+
+let leonNoel = new MakeEmployee(250,40,.35)
+
+leonNoel.profitMade()
+
+/*
+
+---Encapsulation
+
+Fusing data and functionality into one object
+
+*/
