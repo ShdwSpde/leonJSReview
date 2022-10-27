@@ -162,7 +162,7 @@ is it easy to add new features and functionality?
 What if there was a system, a paradigm, a set of rules to help us organize our code better?
 
 Thats OOP
-*/
+
 
 let hourlyRate = 250
 let hours = 8
@@ -176,25 +176,71 @@ let profit = calculateProfit(hourlyRate,hours,taxRate)
 
 console.log(profit)
 
-class MakeEmployee{
-  constructor(hourlyRate,hoursWorked,taxRate){
-    this.rate = hourlyRate
-    this.hours = hoursWorked
-    this.taxes = taxRate
+*/
+
+// OOP Baby - we have now encapsulated out data into the leonNoel object and that function is tied to it
+
+function AgencyContractor(hourlyRate,hours,taxRate){
+  this.hours = hours
+  this.taxRate = taxRate
+  let rate = hourlyRate
+  let calculateProfit = function(){
+  return this.hours * rate * (1 - this.taxRate)
   }
-  profitMade(){
-    console.log(this.rate * this.hours * (1 - this.taxes))
+  this.invoiceClient = function(){
+    console.log(`Your total invoice is ${rate * this.hours}`)
   }
 }
 
-let leonNoel = new MakeEmployee(250,40,.35)
-
-leonNoel.profitMade()
-
+let leonNoel = new AgencyContractor(250,40,.35)
+leonNoel.invoiceClient()
 /*
 
 ---Encapsulation
 
 Fusing data and functionality into one object
+
+
+--- Abstraction
+
+Process of removing or generalizing physical,spatial, or temporal details or attributes in the study of objects or systems to focus attentionon details of greater importance
+
+
+Inheritance
+
+Make a class from another class for a hierarchy of classes that share a set of properties and methods
+
+Polymorphism
+*/
+
+//Lets start a farm
+
+class Animal{
+  constructor(name){
+    this.name = name
+  }
+  speak(){
+    console.log(`${this.name} makes a sound`)
+  }
+}
+
+class Dog extends Animal{
+  constructor(name,breed){
+    super(name)
+    this.breed = breed
+  }
+}
+
+let simba = new Dog('Simba','Shepherd')
+let logan = new Dog('Logan','Pitbull')
+
+console.log(simba.name)
+console.log(simba.breed)
+logan.speak()
+console.log(logan.name)
+
+/*
+
+If you find yourself starting to create a number of objects that have similar features, then creating a generic object type to contain all the shared functionality and inheriting those features in more specialized object types can be convenient and useful
 
 */
