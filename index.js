@@ -244,3 +244,17 @@ console.log(logan.name)
 If you find yourself starting to create a number of objects that have similar features, then creating a generic object type to contain all the shared functionality and inheriting those features in more specialized object types can be convenient and useful
 
 */
+
+class SugarGlider extends Animal{
+  constructor(name,flightTime,isAdorable){
+  super(name)
+  this.glide = flightTime
+  this.isCute = isAdorable
+  }
+}
+
+let gonzo = new SugarGlider('Gonzo','15',true)
+
+console.log(gonzo.name)
+console.log(gonzo.glide)
+console.log(gonzo.isCute)
