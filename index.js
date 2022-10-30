@@ -258,3 +258,30 @@ let gonzo = new SugarGlider('Gonzo','15',true)
 console.log(gonzo.name)
 console.log(gonzo.glide)
 console.log(gonzo.isCute)
+
+// But how could we signify that certain properties should not be updated? We use the convention on adding an underscore before the property key and then adding a get to route it
+
+class Student{
+  constructor(name,creditsAttained,enrolledClasses,idNumber){
+    this._name = name
+    this._id = idNumber
+    this.classes = enrolledClasses
+    this.credits = creditsAttained
+  }
+  get name(){
+    return this._name
+  }
+  get id(){
+    return this._id
+  }
+}
+
+let spade = new Student('Mike Spade', 135, ['Web Development', 'Industrialized IoT', 'Network Architecture'],'076807389')
+
+console.log(spade.classes)
+console.log(spade.credits)
+console.log(spade.name)
+spade.name = 'Mike Geddes'
+console.log(spade.name)
+console.log(spade.id)
+
