@@ -259,12 +259,16 @@ console.log(gonzo.name)
 console.log(gonzo.glide)
 console.log(gonzo.isCute)
 
-// But how could we signify that certain properties should not be updated? We use the convention on adding an underscore before the property key and then adding a get to route it
+/* But how could we signify that certain properties should not be updated? We use the convention on adding an underscore before the property key and then adding a get to route it. Developers use the underscore semantically to 
+denote that a property is private
+
+*/
 
 class Student{
-  constructor(name,creditsAttained,enrolledClasses,idNumber){
+  constructor(name,creditsAttained,enrolledClasses,idNumber,salutation){
     this._name = name
     this._id = idNumber
+    this.salutation = salutation
     this.classes = enrolledClasses
     this.credits = creditsAttained
   }
@@ -274,9 +278,21 @@ class Student{
   get id(){
     return this._id
   }
+  creditCheck(){
+    if(this.credits < 0){
+      console.log('Invalid credit balance. Please see bursar immediately!')
+    } else if (this.credits >= 120){
+      console.log('You are ready to graduate. Congratulations')
+    } else {
+      console.log(`You have ${this.credits} credits. Keep going!`)
+    }
+  }
+  checkIn(){
+    console.log(`${this._name} says ${this.salutation}`)
+  }
 }
 
-let spade = new Student('Mike Spade', 135, ['Web Development', 'Industrialized IoT', 'Network Architecture'],'076807389')
+let spade = new Student('Mike Spade', 215, ['Web Development', 'Industrialized IoT', 'Network Architecture'],'076807389','yerrr')
 
 console.log(spade.classes)
 console.log(spade.credits)
@@ -284,4 +300,14 @@ console.log(spade.name)
 spade.name = 'Mike Geddes'
 console.log(spade.name)
 console.log(spade.id)
+spade.creditCheck()
 
+let dashi = new Student('Dashimir', 215,['C','Assembly'],025180900,'waddduppp')
+
+let ian = new Student('EmanSchwa',175,['theatre', 'film history'], 123456789,'um, yelloo')
+
+let classroom = [ dashi, ian, spade]
+
+  for(s of classroom){
+  s.checkIn()
+  }
