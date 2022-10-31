@@ -311,3 +311,62 @@ let classroom = [ dashi, ian, spade]
   for(s of classroom){
   s.checkIn()
   }
+
+class Player{
+  constructor(name,number,team,stats){
+    this._name = name
+    this.number = number
+    this.team = team
+    this.stats = stats
+  }
+  score(){
+    console.log(`Player #${this.number} of the ${this.team},${this.name} scores`)
+  }
+  get name(){
+    return this._name
+  }
+}
+
+
+let lebron = new Player('Lebron James',32,'Los Angeles Lakers', [20,8,8])
+
+lebron.score()
+console.log(lebron.name)
+
+class Contractor{
+  constructor(name,role){
+    this._name = name
+    this._role = role
+  }
+  get name(){
+    return this._name
+  }
+  get role(){
+    return this._role
+  }
+  sayHello(){
+    console.log(`Hey, my name is ${this._name} and I am on the ${this._role} team`)
+  }
+}
+
+let machi = new Contractor('The Machine','Front-End')
+
+machi.sayHello()
+
+class Front extends Contractor{
+  constructor(name,role,tech){
+    super(name,role)
+    this._tech = this.tech
+  }
+  get tech(){
+    return this._tech
+  }
+  sayHello(){
+    console.log(`Hello! It's me ${this._name} and I work on the Front-end`)
+  }
+}
+
+let marcia = new Front('Miss Thang','Front-end',['react','sql'])
+
+marcia.sayHello()
+
